@@ -8,7 +8,7 @@ const PlayerList = () => {
   const [temp, setTemp] = useState([])  // temp because the details array will be modified when setDetails() is called and old fetched data is modified.
 
   const fetchData = async () => {
-    const res = await fetch("http://localhost:5000/api/players");
+    const res = await fetch("https://cric-db.herokuapp.com//api/players");
     const json = await res.json();
     setDetails(json.result);
     setTemp(json.result);
