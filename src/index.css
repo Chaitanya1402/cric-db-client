@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #fff;
+    --text: #000;
+    --card-bg-color: #e9d5ff;
+    --black: #000;
+    --link: #1d4ed8;
+    --link2: #1d4ed8;
+    --player-card-bg: #fff;
+    --player-card-border: rgb(212 212 216);
+    --player-card-border-hover: rgb(161 161 170);
+    --table-cell-color: rgb(243, 244, 246);
+    --table-cell-border-color: rgb(229 231 235);
+    --filter-active-text-border-color: rgb(107 33 168); 
+}
+
+[data-theme="dark"] {
+    --background: #18181b;
+    --text: #d1d5db;
+    --card-bg-color: #d8b4fe;
+    --black: #000;
+    --link: #60a5fa;
+    --link2: #1d4ed8; /* for contact page dark mode inside card*/
+    --player-card-bg: #27272a;
+    --player-card-border: rgb(51 65 85);
+    --player-card-border-hover: #64748b;
+    --table-cell-color: #27272a;
+    --table-cell-border-color: rgb(51 65 85);
+    --filter-active-text-border-color: rgb(216 180 254); 
+}
+
+.app {
+    max-width: 2000px;
+    margin: auto;
+    background: var(--background);
+    transition: all 0.3s linear;
+    min-height: 100vh;
+}
+
+.link-transition{
+    transition: all 0.3s;
+}
+
+.card {
+    max-height: 360px;
+    overflow: hidden;
+    border-color: var(--player-card-border);
+    background-color: var(--player-card-bg);
+    color: var(--text);
+}
+
+.card:hover {
+    border-color: var(--player-card-border-hover);
+}
+
+.player-image {
+    transition: height 0.5s;
+}
+
+/* .card:hover .player-image {
+    height: 15rem;
+    opacity: 1;
+} */
+
+.card:hover .extra-player-details {
+    display: flex;
+}
+
+.contact {
+    color: var(--text);
+}
+
+.contact-link-1 {
+    color: var(--link);
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    color: var(--black);
+}
+
+.project-card a {
+    color: var(--link2);
+}
+
+.about {
+    color: var(--text);
+}
+
+.testimonial-card {
+    background-color: var(--card-bg-color);
+    color: var(--black);
+}
+
+.options {
+    color: var(--text);
+}
+
+.active {
+    border-color: var(--filter-active-text-border-color);
+    color: var(--filter-active-text-border-color);
+}
+
+.player-info {
+    color: var(--text);
+}
+
+.table-bg {
+    background-color: var(--table-cell-color);
+}
+
+.table-border {
+    border-color: var(--table-cell-border-color);
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(133, 133, 133);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 0px;
+    bottom: 4px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: 0 0px 15px #2020203d;
+    background: white url('https://i.ibb.co/FxzBYR9/night.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+    background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+  
+@layer components {
+    .active {
+        @apply border-b-2
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .rem-height {
+        height: 40vh;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .rem-height {
+        height: 60vh;
+    }
+    
+    .card:hover .player-image {
+        height: 15rem;
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .rem-height {
+        height: calc(100vh - 64px);
+    }
+}
