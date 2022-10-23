@@ -1,11 +1,14 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ThemeContext from '../contexts/ThemeContext';
 
 const Navbar = (props) => {
+  const themeInfo = useContext(ThemeContext);
+
   useEffect(() => {
     let slider = document.getElementById('slider');
-    props.theme === 'dark' ? slider.checked = true : slider.checked = false;
+    themeInfo.theme === 'dark' ? slider.checked = true : slider.checked = false;
   }, [])
   
   return (
