@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import PlayerCard from './PlayerCard'
-import PlayerInfo from './PlayerInfo';
+import SkeletonPlayerCard from './SkeletonPlayerCard';
 
 const PlayerList = () => {
   const [active, setActive] = useState("allplayers");
+  const [isLoading, setIsLoading] = useState(true);
   const [details, setDetails] = useState([])
   const [temp, setTemp] = useState([])  // temp because the details array will be modified when setDetails() is called and old fetched data is modified.
 
@@ -12,6 +13,7 @@ const PlayerList = () => {
     const json = await res.json();
     setDetails(json.result);
     setTemp(json.result);
+    setIsLoading(false);
   }
 
   const checkRole = (info) => {
@@ -41,6 +43,7 @@ const PlayerList = () => {
           <button onClick={() => setActive('bowler')} className={`${active === 'bowler' ? 'active' : ''} p-1 mx-2`}>Bowlers</button>
         </div>
         {/* Players List goes here */}
+        {isLoading && <SkeletonPlayerCard /> }
         <div className='flex mt-8 flex-wrap justify-center'>
           {details.map((element, key) => {
             return <PlayerCard key={key} details={element} />
@@ -48,7 +51,6 @@ const PlayerList = () => {
 
         </div>
       </div>
-      {/* <PlayerInfo details={details} /> */}
     </>
   )
 }
