@@ -19,8 +19,8 @@ function App() {
 
   return (
     <>
-      <ThemeState >
-        <div className='app' data-theme={theme}>
+      <div className='app' data-theme={theme}>
+        <ThemeState >
           <Router>
             <Wrapper>
               <Navbar theme={theme} toggleTheme={toggleTheme} />
@@ -36,8 +36,8 @@ function App() {
               </Routes>
             </Wrapper>
           </Router>
-        </div>
-      </ThemeState>
+        </ThemeState>
+      </div>
     </>
   );
 }

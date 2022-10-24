@@ -48,9 +48,9 @@ const About = () => {
         
         <div className="imgs flex justify-center items-center mb-2">
           <a href="https://reactjs.org/" target="_blank"><img className='mx-3 sm:h-16 h-10' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="ReactJS" /></a>
-          <a href="https://nodejs.org/en/" target="_blank"><img className='mx-3 sm:h-20 h-10' src="https://brandlogos.net/wp-content/uploads/2015/09/nodejs-logo-vector-download.jpg" alt="NodeJS" /></a>
+          <a href="https://nodejs.org/en/" target="_blank"><img className='mx-3 sm:h-20 h-10' src="https://vistaran-tech.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/05/13104926/nodejs-logo.png" alt="NodeJS" /></a>
           <a href="https://www.mongodb.com/" target="_blank"><img className='mx-3 sm:h-20 h-10' src="https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_wordmark_logo_icon_146425.png" alt="MongoDB" /></a>
-          <a href="https://tailwindcss.com/" target="_blank"><img className='mx-3 sm:h-20 h-10' src="https://res.cloudinary.com/practicaldev/image/fetch/s--neFmc7k8--/c_imagga_scale,f_auto,fl_progressive,h_1080,q_auto,w_1080/https://dev-to-uploads.s3.amazonaws.com/i/9w1d71e00a6xdltour1s.png" alt="TailwindCSS" /></a>
+          <a href="https://tailwindcss.com/" target="_blank"><img className='mx-3 sm:h-20 h-10' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/600px-Tailwind_CSS_Logo.svg.png?20211001194333" alt="TailwindCSS" /></a>
         </div>
 
         <p className='text-justify'>We have used the MERN stack for building and managing this website. The front end is based on React, an open-source Javascript library and the styling has been done using Tailwind CSS, a CSS Framework. We have used MongoDB, a NoSQL database to store the players' information. Additionally, we used a few APIs for getting the flag based on the country code and also fetching a player’s Wikipedia. Since React is a single-page application, there is rarely any page reload and the fetches are very quick. This increases the user experience too. Lastly, we also set up an Express app at the backend to handle the server requests. For the future scope, we are planning to increase the number of details so that you don’t miss any detail about your favourite players.</p>
