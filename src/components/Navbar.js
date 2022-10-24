@@ -24,7 +24,11 @@ const Navbar = (props) => {
             <li className='mx-3'><Link className='px-2 py-1 text-lg rounded-xl border-2 border-purple-300 hover:bg-purple-200 link-transition' to={'/contact'}>Contact</Link></li>
             {/* <button onClick={() => {props.toggleTheme()}}>Switch to {props.theme === "light" ? "Dark" : "Light"} mode</button> */}
             <label id="switch" className="switch">
-            <input type="checkbox" onChange={props.toggleTheme} id="slider" />
+            <input type="checkbox" onChange={() => {
+              props.toggleTheme();
+              themeInfo.toggleTheme()
+            }} 
+              id="slider" />
             <span className="slider round"></span>
         </label>
           </ul>
