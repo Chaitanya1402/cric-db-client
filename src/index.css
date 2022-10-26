@@ -17,6 +17,11 @@
     --filter-active-text-border-color: rgb(107 33 168);
     --skeleton-base: #ebebeb;
     --skeleton-highlight: #f5f5f5;
+    --input-bg: rgb(229 231 235);
+    --search-result-box-bg: rgb(233 213 255);
+    --search-card-bg: rgb(216 180 254);
+    --search-card-bg-hover: rgb(195, 161, 230);
+    --avatar-bg: rgb(233 213 255);
 
 }
 
@@ -27,7 +32,7 @@
     --black: #000;
     --link: #60a5fa;
     --link2: #1d4ed8; /* for contact page dark mode inside card*/
-    --player-card-bg: #27272a;
+    --player-card-bg: rgb(39, 39, 42);
     --player-card-border: rgb(51 65 85);
     --player-card-border-hover: #64748b;
     --table-cell-color: #27272a;
@@ -35,6 +40,12 @@
     --filter-active-text-border-color: rgb(216 180 254);
     --skeleton-base: #27272a;
     --skeleton-highlight: #333336; 
+    --input-bg: rgb(55 65 81);
+    --search-result-box-bg: rgb(71 85 105);
+    --search-card-bg: rgb(51 65 85);
+    --search-card-bg-hover: rgb(30 41 59);
+    --avatar-bg: rgb(71 85 105);
+
 }
 
 .app {
@@ -193,6 +204,35 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.search-input {
+    background-color: var(--input-bg);
+    border-color: var(--player-card-border-hover);
+}
+
+.search-results-box {
+    background-color: var(--search-result-box-bg);
+}
+
+.search-card {
+    background-color: var(--search-card-bg);
+}
+
+.search-card:hover {
+    background-color: var(--search-card-bg-hover);
+}
+
+.search-card img {
+    background-color: var(--avatar-bg);
+}
+
+#filter-list {
+    background-color: var(--search-result-box-bg);
+}
+
+#filter-list button {
+    background-color: var(--search-card-bg);
+}
+
   
 @layer components {
     .active {
@@ -214,6 +254,16 @@ input:checked + .slider:before {
     .card:hover .player-image {
         height: 15rem;
         opacity: 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #filter-list {
+        background-color: transparent;
+    }
+    
+    #filter-list button {
+        background-color: transparent;
     }
 }
 
