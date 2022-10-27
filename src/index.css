@@ -22,6 +22,7 @@
     --search-card-bg: rgb(216 180 254);
     --search-card-bg-hover: rgb(195, 161, 230);
     --avatar-bg: rgb(233 213 255);
+    --navbar-text: #000;
 
 }
 
@@ -45,6 +46,7 @@
     --search-card-bg: rgb(51 65 85);
     --search-card-bg-hover: rgb(30 41 59);
     --avatar-bg: rgb(71 85 105);
+    --navbar-text: rgb(216 180 254);
 
 }
 
@@ -52,6 +54,15 @@
     max-width: 2000px;
     margin: auto;
     min-height: 100vh;
+}
+
+.navbar-ul {
+    background-color: var(--search-result-box-bg);
+}
+
+.navbar-ul li a {
+    background-color: var(--search-card-bg);
+    color: var(--navbar-text);
 }
 
 .link-transition{
@@ -262,6 +273,15 @@ input:checked + .slider:before {
     
     #filter-list button {
         background-color: transparent;
+    }
+    
+    .navbar-ul {
+        background-color: rgb(233 213 255);
+    }
+    
+    .navbar-ul li a {
+        background-color: rgb(216 180 254);
+        color: black;
     }
 }
 
