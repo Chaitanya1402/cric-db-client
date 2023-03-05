@@ -10,6 +10,7 @@ const PlayerInfo = () => {
 
   const fetchPlayerData = async () => {
     var url = new URL("http://localhost:5000/api/playersbyid");
+    // var url = new URL("http://cricdb-env.eba-pqkkiaav.ap-northeast-1.elasticbeanstalk.com/api/playersbyid");
     // var url = new URL("https://cric-db.herokuapp.com/api/playersbyid");
     url.search = new URLSearchParams({ _id: params.id }).toString();
 

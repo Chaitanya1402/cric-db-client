@@ -12,6 +12,7 @@ const PlayerList = () => {
 
   const fetchData = async () => {
     const res = await fetch("http://localhost:5000/api/players");
+    // const res = await fetch("http://cricdb-env.eba-pqkkiaav.ap-northeast-1.elasticbeanstalk.com/api/players");
     // const res = await fetch("https://cric-db.herokuapp.com/api/players");
     const json = await res.json();
     setDetails(json.result);
