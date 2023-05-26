@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PlayerCard from './PlayerCard'
 import Search from './Search';
 import SkeletonPlayerCard from './SkeletonPlayerCard';
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebaseConfig';
 
 const PlayerList = () => {
   const [active, setActive] = useState("allplayers");
@@ -11,12 +13,20 @@ const PlayerList = () => {
   const [temp, setTemp] = useState([])  // temp because the details array will be modified when setDetails() is called and old fetched data is modified.
 
   const fetchData = async () => {
-    const res = await fetch("http://localhost:5000/api/players");
+    // const res = await fetch("http://localhost:5000/api/players");
     // const res = await fetch("http://cricdb-env.eba-pqkkiaav.ap-northeast-1.elasticbeanstalk.com/api/players");
     // const res = await fetch("https://cric-db.herokuapp.com/api/players");
-    const json = await res.json();
-    setDetails(json.result);
-    setTemp(json.result);
+    // const json = await res.json();
+
+    const querySnapshot = await getDocs(collection(db, "players"));
+    let array = [];
+    querySnapshot.forEach((doc) => {
+      // console.log(doc.id, " => ", doc.data());
+      array.push(doc.data());
+    });
+
+    setDetails(array);
+    setTemp(array);
     setIsLoading(false);
   }
 

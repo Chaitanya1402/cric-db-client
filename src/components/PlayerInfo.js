@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import SkeletonPlayerInfo from './SkeletonPlayerInfo';
+import { doc, getDoc } from "firebase/firestore";
+import { db } from '../firebaseConfig';
 
 const PlayerInfo = () => {
   const [wiki, setWiki] = useState("");
@@ -9,15 +11,25 @@ const PlayerInfo = () => {
   let params = useParams();
 
   const fetchPlayerData = async () => {
-    var url = new URL("http://localhost:5000/api/playersbyid");
+    // var url = new URL("http://localhost:5000/api/playersbyid");
     // var url = new URL("http://cricdb-env.eba-pqkkiaav.ap-northeast-1.elasticbeanstalk.com/api/playersbyid");
     // var url = new URL("https://cric-db.herokuapp.com/api/playersbyid");
-    url.search = new URLSearchParams({ _id: params.id }).toString();
+    // url.search = new URLSearchParams({ _id: params.id }).toString();
 
-    const res = await fetch(url);
-    const json = await res.json();
-    setDetails(json.result);
-    setIsLoading(false);
+    // const res = await fetch(url);
+    // const json = await res.json();
+    // setDetails(json.result);
+    // setIsLoading(false);
+
+    const docRef = doc(db, "players", params.id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      setDetails(docSnap.data());
+      setIsLoading(false);
+    } else {
+      alert("No such document!");
+    }
   }
 
   const wikiPlayer = async () => {
